@@ -26,6 +26,8 @@ Create an UML Use-Case diagram describing an ATM system. Save jpg use case diagr
 
 **>>>>insert use case diagram here<<<<**
 
+![Diagram](docs/ex2.jpg)
+
 ## Exercise 3
 
 ```java
@@ -77,6 +79,8 @@ For the application above:
 * add necessary changes in ProxyVideo class so that depending on a constructor argument given in this class the proxy to call either black and white or color playable video.
 
 **>>>>insert class diagram here<<<<**
+
+![Diagram](docs/ex3.jpg)
 
 ## Exercise 4
 
@@ -177,6 +181,8 @@ For the application above:
 * adapt the current implementation in order to be able to create instances of these classes based on their type. Test the new functionality using Main class.
 
 **>>>>insert class diagram here<<<<**
+
+![Diagram](docs/ex4.jpg)
 
 ## Exercise 5
 ![Exercise 5 image](docs/ex5.jpg)
