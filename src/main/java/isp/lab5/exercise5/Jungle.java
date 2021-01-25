@@ -1,47 +1,37 @@
 package isp.lab5.exercise5;
 
-import org.apache.commons.lang3.ArrayUtils;
-
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Jungle {
-    private Herbivorous[] herbivores;
-    private Carnivorous[] carnivores;
+    private ArrayList<Herbivorous> herbivores;
+    private ArrayList<Carnivorous> carnivores;
 
-    public Jungle(Herbivorous[] herbivores, Carnivorous[] carnivores) {
+    public Jungle(ArrayList<Herbivorous> herbivores, ArrayList<Carnivorous> carnivores) {
         this.herbivores = herbivores;
         this.carnivores = carnivores;
     }
 
-    public Herbivorous[] getHerbivores() {
+    public ArrayList<Herbivorous> getHerbivores() {
         return herbivores;
     }
 
-    public Carnivorous[] getCarnivores() {
+    public ArrayList<Carnivorous> getCarnivores() {
         return carnivores;
     }
 
-    public void setHerbivores(Herbivorous[] herbivores) {
+    public void setHerbivores(ArrayList<Herbivorous> herbivores) {
         this.herbivores = herbivores;
     }
 
-    public void setCarnivores(Carnivorous[] carnivores) {
+    public void setCarnivores(ArrayList<Carnivorous> carnivores) {
         this.carnivores = carnivores;
     }
 
-    public Herbivorous[] removeAnimalFromHerbivores(int index) {
-        Herbivorous[] newHerbivores = ArrayUtils.remove(herbivores, index);
-        System.out.println("--------");
-        System.out.println("Now we have only " + Arrays.toString(newHerbivores));
-        setHerbivores(newHerbivores);
-        return newHerbivores;
+    public void removeAnimalFromHerbivores(int index) {
+        herbivores.remove(index);
     }
 
-    public Carnivorous[] removeAnimalFromCarnivores(int index) {
-        Carnivorous[] newCarnivores = ArrayUtils.remove(carnivores, index);
-        System.out.println("--------");
-        System.out.println("Now we have only " + Arrays.toString(newCarnivores));
-        setCarnivores(newCarnivores);
-        return newCarnivores;
+    public void removeAnimalFromCarnivores(int index) {
+        carnivores.remove(index);
     }
 }

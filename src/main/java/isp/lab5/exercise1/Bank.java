@@ -1,22 +1,24 @@
 package isp.lab5.exercise1;
 
-public class Bank {
-    private Account[] accounts;
+import java.util.ArrayList;
 
-    public Bank(Account[] accounts) {
+public class Bank {
+    private ArrayList<Account> accounts = new ArrayList<>();
+
+    public Bank(ArrayList<Account> accounts) {
         this.accounts = accounts;
     }
 
-    public Account[] getAccounts() {
+    public ArrayList<Account> getAccounts() {
         return accounts;
     }
 
-    public void setAccounts(Account[] accounts) {
+    public void setAccounts(ArrayList<Account> accounts) {
         this.accounts = accounts;
     }
 
     public String executeTransaction(Transaction t) {
-        return "I'm not having a clue what this should do";
+        return t.execute(); // here we use, like what diagram said
     }
 
     public Account getAccountByCardId(String cardId) {

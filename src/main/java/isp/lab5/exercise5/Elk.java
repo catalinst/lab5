@@ -5,11 +5,10 @@ import java.util.Random;
 public class Elk extends Animal implements Herbivorous {
     private int chanceToRunSuccessfully;
     private String name;
-    private int age;
 
-    public Elk(String name, int age) {
+    public Elk(String name, int age, String species) {
+        super(species, age);
         this.name = name;
-        this.age = age;
         Random random = new Random();
         chanceToRunSuccessfully = random.nextInt(101);
     }

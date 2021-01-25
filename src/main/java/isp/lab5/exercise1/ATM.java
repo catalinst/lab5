@@ -26,9 +26,9 @@ public class ATM {
 
     public void changePin(String oldPin, String newPin) {
         if (card != null) {
-            Transaction t = new ChangePin(oldPin, newPin);
-            System.out.println(t.execute());
-            bank.getAccountByCardId(card.getCardId()).getCard().setPin(newPin);
+            Account currentAccount = bank.getAccountByCardId(card.getCardId());
+            Transaction t = new ChangePin(oldPin, newPin, currentAccount); // here we create, like what diagram said
+            System.out.println(bank.executeTransaction(t));
         } else {
             System.out.println("Please insert the card");
         }
@@ -36,9 +36,9 @@ public class ATM {
 
     public void withdraw(double amount) {
         if (card != null) {
-            Transaction t = new WithdrawMoney(amount);
-            System.out.println(t.execute());
-            bank.getAccountByCardId(card.getCardId()).setBalance(bank.getAccountByCardId(card.getCardId()).getBalance() - amount);
+            Account currentAccount = bank.getAccountByCardId(card.getCardId());
+            Transaction t = new WithdrawMoney(amount, currentAccount); // here we create, like what diagram said
+            System.out.println(bank.executeTransaction(t));
         } else {
             System.out.println("Please insert the card");
         }
@@ -46,10 +46,9 @@ public class ATM {
 
     public void checkMoney() {
         if (card != null) {
-            Transaction t = new CheckMoney();
-            System.out.println(t.execute());
-            double money = bank.getAccountByCardId(card.getCardId()).getBalance();
-            System.out.println(money);
+            Account currentAccount = bank.getAccountByCardId(card.getCardId());
+            Transaction t = new CheckMoney(currentAccount); // here we create, like what diagram said
+            System.out.println(bank.executeTransaction(t));
         } else {
             System.out.println("Please insert the card");
         }

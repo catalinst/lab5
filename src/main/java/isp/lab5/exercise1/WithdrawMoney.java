@@ -3,7 +3,8 @@ package isp.lab5.exercise1;
 public class WithdrawMoney extends Transaction {
     public double amount;
 
-    public WithdrawMoney(double amount) {
+    public WithdrawMoney(double amount, Account account) {
+        super(account);
         this.amount = amount;
     }
 
@@ -17,6 +18,11 @@ public class WithdrawMoney extends Transaction {
 
     @Override
     public String execute() {
-        return "Withdraw " + amount;
+        if (getAccount().getBalance() > amount) {
+            getAccount().setBalance(getAccount().getBalance() - amount);
+            return "You withdraw: " + amount + ", your new balance: " + getAccount().getBalance();
+        } else {
+            return "Not enough founds";
+        }
     }
 }

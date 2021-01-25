@@ -4,7 +4,8 @@ public class ChangePin extends Transaction {
     public String oldPin;
     public String newPin;
 
-    public ChangePin(String oldPin, String newPin) {
+    public ChangePin(String oldPin, String newPin, Account account) {
+        super(account);
         this.oldPin = oldPin;
         this.newPin = newPin;
     }
@@ -27,6 +28,11 @@ public class ChangePin extends Transaction {
 
     @Override
     public String execute() {
-        return "Pin was changed from " + oldPin + " to " + newPin;
+        if (getAccount().getCard().getPin().equals(oldPin)) {
+            getAccount().getCard().setPin(newPin);
+            return "Pin changed successfully";
+        } else {
+            return "Pin wasn't changed";
+        }
     }
 }

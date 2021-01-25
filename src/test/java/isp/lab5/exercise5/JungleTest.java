@@ -1,3 +1,4 @@
+/*
 package isp.lab5.exercise5;
 
 import org.junit.Test;
@@ -24,4 +25,4 @@ public class JungleTest {
     public void removeAnimalFromCarnivores() {
         assertEquals("After removing the lion we should have only the tiger", jungle.removeAnimalFromCarnivores(1) ,jungle.getCarnivores());
     }
-}
+}*/

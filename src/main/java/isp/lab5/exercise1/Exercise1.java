@@ -1,6 +1,6 @@
 package isp.lab5.exercise1;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Exercise1 {
     //intre bank si account avem agregare, referinta va fi in bank
@@ -20,10 +20,13 @@ public class Exercise1 {
         Account account1 = new Account("Jane", 3000, card1);
         Account account2 = new Account("Jack", 10000, card2);
         Account account3 = new Account("Joe", 4000, card3);
-        Account[] accounts = new Account[]{account1, account2, account3};
+        ArrayList<Account> accounts = new ArrayList<>();
+        accounts.add(account1);
+        accounts.add(account2);
+        accounts.add(account3);
 
         Bank bank = new Bank(accounts);
-        System.out.println(Arrays.toString(bank.getAccounts()));
+        System.out.println(bank.getAccounts());
         System.out.println(bank.getAccountByCardId("0001")); // no account
         System.out.println(bank.getAccountByCardId("card#1"));
 
@@ -37,7 +40,8 @@ public class Exercise1 {
             atm.checkMoney();
             atm.withdraw(300);
             atm.checkMoney();
-            atm.changePin("****", "1133");
+            atm.changePin("1234", "1133");
+            atm.changePin("1234", "1111");
         } else {
             System.out.println("Password is incorrect");
         }
@@ -45,6 +49,8 @@ public class Exercise1 {
         atm.removeCard();
         atm.checkMoney();
 
+        System.out.println("-----------");
+        System.out.println("-----------");
         System.out.println("---- this should now not work cause we changed the PIN");
 
         if (atm.insertCard(card1, "1234") == true) {

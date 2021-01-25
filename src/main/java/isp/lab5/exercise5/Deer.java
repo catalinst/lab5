@@ -5,11 +5,10 @@ import java.util.Random;
 public class Deer extends Animal implements Herbivorous {
     private int chanceToRunSuccessfully;
     private String name;
-    private int age;
 
-    public Deer(String name, int age) {
+    public Deer(String name, int age, String species) {
+        super(species, age);
         this.name = name;
-        this.age = age;
         Random random = new Random();
         chanceToRunSuccessfully = random.nextInt(101);
     }

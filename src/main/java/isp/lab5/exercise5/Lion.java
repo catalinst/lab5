@@ -5,11 +5,10 @@ import java.util.Random;
 public class Lion extends Animal implements Carnivorous {
     private int chanceToHuntSuccessfully;
     private String name;
-    private int age;
 
-    public Lion(String name, int age) {
+    public Lion(String name, int age, String species) {
+        super(species, age);
         this.name = name;
-        this.age = age;
         Random random = new Random();
         chanceToHuntSuccessfully = random.nextInt(101);
     }
